@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility exercise – ARIA exercise 1 (after)</title>
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f8;
+      color: #333;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #2a9d8f;
+      margin-bottom: 20px;
+    }
+
+    /* Visually hidden, but still in the accessibility tree (screen readers read it) */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    fieldset {
+      border: 2px solid #2a9d8f;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #264653;
+      padding: 0 10px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    label {
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #264653;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+      border: 2px solid #757575;
+      border-radius: 6px;
+      font-size: 1em;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #1E7167;
+      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.4);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background-color: #20796F;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #21867a;
+    }
+
+    /* Visible focus for keyboard users (2.4.7 Focus Visible) */
+    input[type="submit"]:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #264653;
+      outline-offset: 3px;
+    }
+
+    .contact {
+      margin-top: 25px;
+    }
+
+    .contact i {
+      margin-right: 8px;
+      color: #264653;
+    }
+
+    .contact a {
+      color: #264653;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Accessibility exercises</h1>
+  </header>
+
+  <main>
+    <h2>ARIA exercise 1 (after)</h2>
+
+    <form>
+      <fieldset>
+        <legend>Contact us</legend>
+
+        <div class="form-control">
+          <label for="name">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            <span class="sr-only">Name</span>
+          </label>
+          <input type="text" id="name" name="name" autocomplete="name">
+        </div>
+
+        <div class="form-control">
+          <label for="email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span class="sr-only">E-mail</span>
+          </label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </div>
+
+        <div class="form-control">
+          <label for="message">
+            <i class="fa-solid fa-comment" aria-hidden="true"></i>
+            <span class="sr-only">Message</span>
+          </label>
+          <textarea id="message" name="message" cols="30" rows="10"></textarea>
+        </div>
+
+        <input type="submit" value="Send">
+      </fieldset>
+    </form>
+
+    <p class="contact">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <span class="sr-only">Phone:</span>
+      <a href="tel:+523334534567">+52 (333) 45 34 567</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Activity 8. ARIA — Made by Said</p>
+  </footer>
+</body>
+</html>
